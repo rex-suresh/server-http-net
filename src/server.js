@@ -9,7 +9,6 @@ const onRequest = (socket) => {
     const request = parseRequest(clientRequest);
     const response = new Response(socket);
     handleRequest(request, response);
-    socket.end();
   });
 };
 
