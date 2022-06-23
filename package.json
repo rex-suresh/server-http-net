@@ -1,0 +1,17 @@
+{
+  "name": "http_server",
+  "version": "1.0.0",
+  "description": "a simple http server",
+  "main": "src/server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "author": "rex-suresh",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^8.18.0"
+  }
+}
