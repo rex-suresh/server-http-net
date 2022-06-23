@@ -3,15 +3,19 @@ const { handleRequest } = require('./handleRequest.js');
 const { parseRequest } = require('./parseRequest.js');
 const { Response } = require('./response.js');
 
-const onRequest = (socket) => {
-  socket.setEncoding('utf8');
+const onRequest = (socket, handler) => {
   socket.on('data', (clientRequest) => {
-    const request = parseRequest(clientRequest);
+    const request = parseRequest(clientRequest.toString());
     const response = new Response(socket);
-    handleRequest(request, response);
+    handler(request, response);
   });
 };
 
 const PORT = 80;
-const server = createServer(onRequest);
-server.listen(PORT, () => console.log(`started server on port ${PORT}`));
+const server =
+  createServer(socket => onRequest(socket, handleRequest));
+
+server.listen(PORT,
+  () => console.log(`started server on port ${PORT}`));
+
+module.exports = { onRequest };
