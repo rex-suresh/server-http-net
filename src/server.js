@@ -1,5 +1,6 @@
 const { createServer } = require('net');
-const { handleRequest } = require('./handleRequest.js');
+// const { handleRequest } = require('./handleRequest.js');
+const { handleRequest } = require('./handleFileServes.js');
 const { parseRequest } = require('./parseRequest.js');
 const { Response } = require('./response.js');
 

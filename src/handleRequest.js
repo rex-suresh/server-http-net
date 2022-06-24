@@ -1,13 +1,4 @@
-const { tagOf } = require('../domToHtml');
-
-// const _handleRequest = (request, socket) => {
-//   const responses = [
-//     'HEY HELLO', 'DO i KNOW YOU', 'GET LOST', 'BYE BYE', 'STUPID', 'MONKEY'
-//   ];
-//   const randomResponse = responses[
-//     Math.floor(responses.length * Math.random())];
-//   socket.write(randomResponse);
-// };
+const { tagOf } = require('../domToHtml.js');
 
 const DOM = ['div',
   {
@@ -23,8 +14,7 @@ const getBox = (color) => [
   'div', {
     class: 'box',
     style: `height:300px;aspect-ratio:1;background-color:${color}`
-  }, '']
-;
+  }, ''];
 
 const handleRequest = ({ uri = '/black' }, response) => {
   const box = getBox(uri.slice(1));
