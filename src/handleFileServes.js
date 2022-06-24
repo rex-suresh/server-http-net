@@ -1,11 +1,13 @@
 const fs = require('fs');
 
-const handleRequest = ({ uri = '/anime' }, response) => {
-  const fileName = `./public${uri}`;
+const handleFileRequest = (path, { uri }, response) => {
+  const fileName = `${path}${uri}`;
   if (fs.existsSync(fileName)) {
     const body = fs.readFileSync(fileName);
     response.send(body);  
+    return true;
   }
+  return false;
 };
 
-module.exports = { handleRequest };
+module.exports = { handleFileRequest };
