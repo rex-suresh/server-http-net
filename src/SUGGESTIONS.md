@@ -1,3 +1,3 @@
- - [ ] Make server work for chained handlers
- - [ ] Add, Parameterize the website dir
+ - [x] Make server work for chained handlers
+ - [x] Add, Parameterize the website dir
 

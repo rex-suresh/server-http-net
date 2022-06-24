@@ -16,10 +16,18 @@ const getBox = (color) => [
     style: `height:300px;aspect-ratio:1;background-color:${color}`
   }, ''];
 
-const handleRequest = ({ uri = '/black' }, response) => {
-  const box = getBox(uri.slice(1));
-  const page = tagOf(...DOM, box);
-  response.send(page);
+const handleDynamicRequest = ({ uri }, response) => {
+  const colors = ['red', 'green', 'blue', 'pink', 'white'];
+  const color = uri.slice(1);
+
+  if (colors.includes(color.toLowerCase())) {
+    const box = getBox(color);
+    const page = tagOf(...DOM, box);
+    response.send(page);
+    return true;
+  }
+  
+  return false;
 };
 
-module.exports = { handleRequest };
+module.exports = { handleDynamicRequest };

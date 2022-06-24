@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const handleFileRequest = (path, { uri }, response) => {
+const handleFileRequest = ({ uri }, response, path) => {
   const fileName = `${path}${uri}`;
   if (fs.existsSync(fileName)) {
     const body = fs.readFileSync(fileName);
